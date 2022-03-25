@@ -17,42 +17,51 @@ public class CompanyList {
 			System.out.println("SELECT one number between 1-6: ");
 			
 			num = input.nextInt();
+			if (num==1) {
+				recruitE();
+			}
 			
-			switch(num) {
-			case 1:
-				System.out.print("Employee ID: ");
-				int employeeId = input.nextInt();
-				System.out.print("Employee Name: ");
-				String employeeName = input.next();
-				input.nextLine();
-				System.out.print("Employee Department: ");
-				String employeedepartment = input.nextLine();
-				System.out.print("Employee Job grage: ");
-				String employeeGrade = input.nextLine();
-				break;
-				
-			case 2:
-				System.out.print("Employee ID: ");
-				int employeeId2 = input.nextInt();
-				break;
-				
-			case 3:
-				System.out.print("Employee ID: ");
-				int employeeId3 = input.nextInt();
-				break;
-				
-			case 4:
-				System.out.print("Employee ID: ");
-				int employeeId4 = input.nextInt();
-				break;
-				
-			case 5:
-				
-			case 6:
-				System.out.println("Terminate Program.");
-				break;
+			else if (num==2) {
+				laidOffE();
+			}
+			
+			else if (num==3) {
+				reshuffleE();
+			}
+			
+			else if (num==4) {
+				viewE();
 			}
 		}
+	}
 
+	public static void recruitE() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Employee ID: ");
+		int employeeId = input.nextInt();
+		System.out.print("Employee Name: ");
+		String employeeName = input.next();
+		System.out.print("Employee ID: ");
+		String employeeDepartment = input.next();
+		System.out.print("Employee ID: ");
+		String employeeGrade = input.next();
+	}
+	
+	public static void laidOffE() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Employee ID: ");
+		int studentId = input.nextInt();
+	}
+		
+	public static void reshuffleE() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Employee ID: ");
+		int studentId = input.nextInt();
+	}
+			
+	public static void viewE() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Employee ID: ");
+		int studentId = input.nextInt();
 	}
 }
