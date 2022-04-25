@@ -5,13 +5,13 @@ public class CompanyList {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		EmployeeManage employeeManage = new EmployeeManage(input); 
-		int num = 0 ;
+		int num = 0;
 		while (num != 6) {
 			System.out.println("Welcome. This is Company List management Program.");
 			System.out.println("1. Recruit Employee");
 			System.out.println("2. Get laid off Employee");
 			System.out.println("3. Employee Reshuffle");
-			System.out.println("4. View Employee");
+			System.out.println("4. View Employees");
 			System.out.println("5. Exit");
 			System.out.println("SELECT one number between 1-5: ");
 			
