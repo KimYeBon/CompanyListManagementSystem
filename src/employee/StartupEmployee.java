@@ -44,5 +44,26 @@ public class StartupEmployee extends Employee { 	// Employee를 상속 받은 형태
 		}
 		
 	}
+	
+	public void printInfo() { 	// 고용인에 따라 정보가 달라짐
+		String skind = "none";
+		switch(this.kind) {
+		case SmallBusiness:
+			skind = "Small Business's Employee";
+			break;
+		case Startup:
+			skind = "StartUp's Employee";
+			break;
+		case PublicEnterprise:
+			skind = "Public Enterprise's Employee";
+			break;
+		case Conglomerate:
+			skind = "CongLomerate's Employee";
+			break;
+		default:
+		
+		}
+		System.out.println("kind: " + skind + "ID:" + name + " name:" + id + " Department:" + department + " Grade:" + grade);
+	}
 
 }

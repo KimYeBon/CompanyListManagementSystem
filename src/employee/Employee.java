@@ -3,7 +3,7 @@ package employee;
 import java.util.Scanner;
 
 public class Employee {
-	protected EmployeeKind kind = EmployeeKind.Startup;
+	protected EmployeeKind kind = EmployeeKind.SmallBusiness;
 	protected int id;
 	protected String name;
 	protected String department;
