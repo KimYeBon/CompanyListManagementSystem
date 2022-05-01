@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
+import employee.ConglomerateEmployee;
 import employee.Employee;
+import employee.EmployeeKind;
 import employee.StartupEmployee;
 
 import java.util.ArrayList;
@@ -17,25 +19,33 @@ public class EmployeeManage {
 		int kind = 0;
 		Employee employee;
 		while (kind != 1 && kind != 2) {
-			System.out.print("1 for Small Business");
-			System.out.print("2 for Startup");
-			System.out.print("Select number for Employee Kind between 1 and 2 : ");
+			System.out.println("1 for Small Business");
+			System.out.println("2 for Startup");
+			System.out.println("3 for Conglomerate");
+			System.out.print("Select number for Employee Kind between 1 or 2 or 3 : ");
 			kind = input.nextInt();
 			if (kind == 1) {  
-				employee = new Employee();
+				employee = new Employee(EmployeeKind.SmallBusiness);
 				employee.getUserInput(input);
 				employees.add(employee); 			// 목록에 employee 항목 추가
 				break;
 			}
 			else if (kind == 2) {
-				employee = new StartupEmployee();
+				employee = new StartupEmployee(EmployeeKind.Startup);
+				employee.getUserInput(input);
+				employees.add(employee); 			// 목록에 employee 항목 추가
+				break; 
+			}
+			
+			else if (kind == 3) {
+				employee = new ConglomerateEmployee(EmployeeKind.Conglomerate);
 				employee.getUserInput(input);
 				employees.add(employee); 			// 목록에 employee 항목 추가
 				break; 
 			}
 			
 			else {
-				System.out.println("Select number for Employee Kind between 1 or 2. ");
+				System.out.println("Select number for Employee Kind between 1 or 2 or 3. ");
 			}
 		}
 	}
