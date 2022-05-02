@@ -68,9 +68,9 @@ public class EmployeeManage {
 		else {
 			System.out.println("등록되지 않은 사원입니다.");
 			return;
-	}
+		}
 
-}
+	}
 	
 	public void reshuffleE() {
 		
@@ -79,54 +79,53 @@ public class EmployeeManage {
 		for (int i=0; i<employees.size(); i++) {
 			Employee employee = employees.get(i);
 			if (employee.getID() == employeeId) {		// ID가 동일한지 확인하는 절차
-		
-		EmployeeManage employeeManage = new EmployeeManage(input); 
-		int num = 0 ;
-		while (num != 6) {
-			System.out.println("Welcome. This is Company List management Program.");
-			System.out.println("1. Recruit Employee");
-			System.out.println("2. Get laid off Employee");
-			System.out.println("3. Employee Reshuffle");
-			System.out.println("4. View Employees"); 
-			System.out.println("5. Exit");
-			System.out.println("SELECT one number between 1-5: ");
+				int num = -1 ;
+				while (num != 6) {
+					System.out.println("This is Employee Reshuffle option.");
+					System.out.println("1. Reshuffle Employee ID ");
+					System.out.println("2. Reshuffle Employee Name");
+					System.out.println("3. Reshuffle Employee Department");
+					System.out.println("4. Reshuffle Employee Grade"); 
+					System.out.println("5. Exit");
+					System.out.println("SELECT one number between 1-5: ");
 			
-			num = input.nextInt();
-			if (num==1) {
-				System.out.println("Employee ID: ");
-				int id = input.nextInt();
-				employee.setID(id);
-			}
+					num = input.nextInt();
+					if (num==1) {
+							System.out.println("Employee ID: ");
+							int id = input.nextInt();
+							employee.setID(id);
+							}
+					
+					else if (num==2) {
+							System.out.println("Employee name: ");
+							String name = input.next();
+							employee.setName(name);
+							}
 			
-			else if (num==2) {
-				System.out.println("Employee name: ");
-				String name = input.next();
-				employee.setName(name);
-			}
+					else if (num==3) {
+							System.out.println("Employee department: ");
+							String department = input.next();
+							employee.setDepartment(department);
+							}
 			
-			else if (num==3) {
-				System.out.println("Employee department: ");
-				String department = input.next();
-				employee.setDepartment(department);
-			}
-			
-			else if (num==4) {
-				System.out.println("Employee grade: ");
-				String grade = input.next();
-				employee.setGrade(grade);
-			}
-			else {
-				continue;
+					else if (num==4) {
+							System.out.println("Employee grade: ");
+							String grade = input.next();
+							employee.setGrade(grade);
+							}
+					else {
+						continue;
+						}
+					}
+				break; 
+				}
 			}
 		}
-		break; 
-	}
-	}
-}
 		
 	public void viewE() {
 //		System.out.print("Employee ID: ");
 //		int employeeId = input.nextInt();
+		System.out.println("# of registered employees: " + employees.size());
 		for (int i=0; i<employees.size(); i++) {
 			employees.get(i).printInfo();		// 객체의 정보를 출력함
 		}
