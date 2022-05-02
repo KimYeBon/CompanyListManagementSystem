@@ -80,7 +80,7 @@ public class EmployeeManage {
 			Employee employee = employees.get(i);
 			if (employee.getID() == employeeId) {		// ID가 동일한지 확인하는 절차
 				int num = -1 ;
-				while (num != 6) {
+				while (num != 5) {
 					System.out.println("This is Employee Reshuffle option.");
 					System.out.println("1. Reshuffle Employee ID ");
 					System.out.println("2. Reshuffle Employee Name");

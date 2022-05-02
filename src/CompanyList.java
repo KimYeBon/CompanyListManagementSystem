@@ -6,7 +6,7 @@ public class CompanyList {
 		Scanner input = new Scanner(System.in);
 		EmployeeManage employeeManage = new EmployeeManage(input); 
 		int num = 0;
-		while (num != 6) {
+		while (num != 5) {
 			System.out.println("Welcome. This is Company List management Program.");
 			System.out.println("1. Recruit Employee");
 			System.out.println("2. Get laid off Employee");
