@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 import employee.ConglomerateEmployee;
 import employee.Employee;
+import employee.EmployeeInput;
 import employee.EmployeeKind;
+import employee.SmallBusinessEmployee;
 import employee.StartupEmployee;
 
 import java.util.ArrayList;
 
 public class EmployeeManage {
-	ArrayList<Employee> employees = new ArrayList<Employee>(); // employee class의 list
+	ArrayList<EmployeeInput> employees = new ArrayList<EmployeeInput>(); // employee class의 list // 배열 이름 재정의, input의 결과를 출력하겠다는 의미
 	Scanner input;
 	EmployeeManage(Scanner input) {
 		this.input = input;
@@ -17,7 +19,7 @@ public class EmployeeManage {
 	
 	public void recruitE() {
 		int kind = 0;
-		Employee employee;
+		EmployeeInput employeeInput;
 		while (kind != 1 && kind != 2) {
 			System.out.println("1 for Small Business");
 			System.out.println("2 for Startup");
@@ -25,22 +27,22 @@ public class EmployeeManage {
 			System.out.print("Select number for Employee Kind between 1 or 2 or 3 : ");
 			kind = input.nextInt();
 			if (kind == 1) {  
-				employee = new Employee(EmployeeKind.SmallBusiness);
-				employee.getUserInput(input);
-				employees.add(employee); 			// 목록에 employee 항목 추가
+				employeeInput = new SmallBusinessEmployee(EmployeeKind.SmallBusiness);
+				employeeInput.getUserInput(input);
+				employees.add(employeeInput); 			// Employee.add파트가 들어가지 않았으므로 employeeInput에 따라 line 12 수정
 				break;
 			}
 			else if (kind == 2) {
-				employee = new StartupEmployee(EmployeeKind.Startup);
-				employee.getUserInput(input);
-				employees.add(employee); 			// 목록에 employee 항목 추가
+				employeeInput = new StartupEmployee(EmployeeKind.Startup);
+				employeeInput.getUserInput(input);
+				employees.add(employeeInput); 			// 목록에 employee 항목 추가
 				break; 
 			}
 			
 			else if (kind == 3) {
-				employee = new ConglomerateEmployee(EmployeeKind.Conglomerate);
-				employee.getUserInput(input);
-				employees.add(employee); 			// 목록에 employee 항목 추가
+				employeeInput = new ConglomerateEmployee(EmployeeKind.Conglomerate);
+				employeeInput.getUserInput(input);
+				employees.add(employeeInput); 			// 목록에 employee 항목 추가
 				break; 
 			}
 			
@@ -77,8 +79,8 @@ public class EmployeeManage {
 		System.out.print("Employee ID: ");
 		int employeeId = input.nextInt();
 		for (int i=0; i<employees.size(); i++) {
-			Employee employee = employees.get(i);
-			if (employee.getID() == employeeId) {		// ID가 동일한지 확인하는 절차
+			EmployeeInput employeeInput = employees.get(i);
+			if (employeeInput.getID() == employeeId) {		// ID가 동일한지 확인하는 절차
 				int num = -1 ;
 				while (num != 5) {
 					System.out.println("This is Employee Reshuffle option.");
@@ -93,25 +95,25 @@ public class EmployeeManage {
 					if (num==1) {
 							System.out.println("Employee ID: ");
 							int id = input.nextInt();
-							employee.setID(id);
+							employeeInput.setID(id);
 							}
 					
 					else if (num==2) {
 							System.out.println("Employee name: ");
 							String name = input.next();
-							employee.setName(name);
+							employeeInput.setName(name);
 							}
 			
 					else if (num==3) {
 							System.out.println("Employee department: ");
 							String department = input.next();
-							employee.setDepartment(department);
+							employeeInput.setDepartment(department);
 							}
 			
 					else if (num==4) {
 							System.out.println("Employee grade: ");
 							String grade = input.next();
-							employee.setGrade(grade);
+							employeeInput.setGrade(grade);
 							}
 					else {
 						continue;

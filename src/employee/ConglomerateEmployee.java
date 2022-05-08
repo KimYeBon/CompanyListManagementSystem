@@ -2,7 +2,7 @@ package employee;
 
 import java.util.Scanner;
 
-public class ConglomerateEmployee extends Employee {	// Employee를 상속 받은 형태
+public class ConglomerateEmployee extends Employee implements EmployeeInput {	// Employee를 상속 받은 형태
 	
 		protected String conglomerateGrade;
 		

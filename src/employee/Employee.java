@@ -2,7 +2,7 @@ package employee;
 
 import java.util.Scanner;
 
-public class Employee {
+public abstract class Employee {	// 생성자가 아님, Employee 객체를 생성하지 않음
 	protected EmployeeKind kind = EmployeeKind.SmallBusiness;
 	protected int id;
 	protected String name;
@@ -77,46 +77,9 @@ public class Employee {
 		this.grade = grade;
 	}
 	
+	public abstract void printInfo();
 	
-	public void printInfo() { 	// 고용인에 따라 정보가 달라짐
-		String skind = "none";
-		switch(this.kind) {
-		case SmallBusiness:
-			skind = "Small Business's Employee";
-			break;
-		case Startup:
-			skind = "StartUp's Employee";
-			break;
-		case PublicEnterprise:
-			skind = "Public Enterprise's Employee";
-			break;
-		case Conglomerate:
-			skind = "CongLomerate's Employee";
-			break;
-		default:
-		
-		}
-		System.out.println("kind: " + skind + "ID:" + name + " name:" + id + " Department:" + department + " Grade:" + grade);
-	}
-	
+	// printInfo : 출력마다 다를 때, 구현을 모두 별도로 하기 위해 Employee에서 제거
 
-	public void getUserInput(Scanner input) {
-		
-		System.out.print("Employee ID: ");
-		int id = input.nextInt() ;
-		this.setID(id);
-		
-		System.out.print("Employee Name: ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Employee Department: ");
-		String department = input.next();
-		this.setDepartment(department);
-		
-		System.out.print("Employee Grade: ");
-		String grade = input.next();
-		this.setGrade(grade);
-		
-	}
+
 }
