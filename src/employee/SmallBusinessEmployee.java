@@ -25,6 +25,7 @@ public class SmallBusinessEmployee extends Employee implements EmployeeInput {	/
 		System.out.print("Employee Grade: ");
 		String grade = input.next();
 		this.setGrade(grade);
+	}
 		
 		public void printInfo() { 	// 고용인에 따라 정보가 달라짐
 			String skind = "none";
@@ -45,9 +46,10 @@ public class SmallBusinessEmployee extends Employee implements EmployeeInput {	/
 			
 			}
 			System.out.println("kind: " + skind + "ID:" + name + " name:" + id + " Department:" + department + " Grade:" + grade);
-		}
+
 		
 		
 	}
+
+	}
 	
-}
