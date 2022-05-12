@@ -2,6 +2,8 @@ package employee;
 
 import java.util.Scanner;
 
+import Exception.GradeException;
+
 public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Employee 객체를 생성하지 않음
 										// 모두 상속이 되므로 implements로 상속 받을 수 있음
 	protected EmployeeKind kind = EmployeeKind.SmallBusiness;
@@ -9,6 +11,7 @@ public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Empl
 	protected String name;
 	protected String department;
 	protected String grade; 
+	
 	
 	public EmployeeKind getKind() {
 		return kind;
@@ -46,7 +49,10 @@ public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Empl
 		return grade;
 	}
 
-	public void setGrade(String grade) {
+	public void setGrade(String grade) throws GradeException {
+		if (!grade.contains("년") && !grade.equals("")) {
+			throw new GradeException();
+		}
 		this.grade = grade;
 	}
 
@@ -100,9 +106,16 @@ public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Empl
 		}
 		
 		public void setEmployeeGrade(Scanner input) {
+			String grade = "";
+			while (!grade.contains("년") || grade.equals("")) {	// 년도 포함 x 혹은 공백
 			System.out.println("Employee grade: ");
-			String grade = input.next();
-			this.setGrade(grade);
+			grade = input.next();
+			try {
+				this.setGrade(grade);
+			} catch (GradeException e) {
+				System.out.println("연차를 함께 <n년>의 형식으로 입력하시오.");
+			}
+		}
 		}
 		
 		public String getKindString() { 	// 고용인에 따라 정보가 달라짐
@@ -126,10 +139,6 @@ public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Empl
 			return ekind;
 		}
 
-		public void getUserInput(Scanner input) {
-			// TODO Auto-generated method stub
-			
-		}
 
 	}
 	

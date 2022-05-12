@@ -2,6 +2,8 @@ package employee;
 
 import java.util.Scanner;
 
+import Exception.GradeException;
+
 public abstract class FortyEmployee extends Employee {
 
 	public FortyEmployee(EmployeeKind kind) {
@@ -20,20 +22,25 @@ public abstract class FortyEmployee extends Employee {
 	public void setEmployeeGradewithYN(Scanner input) { 	// 직급 구조 받는 파트 단순화
 		char answer = 'x';
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer  != 'N')
-		{
+		{ 
 			System.out.print("직급이 존재합니까? Y/N을 입력하시오. : ");
 			answer = input.next().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
-				System.out.print("Employee Grade: ");
-				String grade = input.next() ;
-				this.setGrade(grade);
-				break;
+			try {
+				if (answer == 'y' || answer == 'Y') {
+					System.out.print("Employee Grade: ");
+					String grade = input.next() ;
+					this.setGrade(grade);
+					break;
+				}
+				else if (answer == 'n' || answer == 'N') {
+					this.setGrade("");
+					break;
+				}
+				else {
+				}
 			}
-			else if (answer == 'n' || answer == 'N') {
-				this.setGrade("");
-				break;
-			}
-			else {
+			catch(GradeException e) {
+				System.out.println("연차를 함께 <n년>의 형식으로 입력하시오.");
 			}
 		}
 	}

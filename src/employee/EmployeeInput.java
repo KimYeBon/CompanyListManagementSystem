@@ -2,6 +2,8 @@ package employee;
 
 import java.util.Scanner;
 
+import Exception.GradeException;
+
 public interface EmployeeInput {
 		
 	public int getID(); 		// UserInput¿¡ getID ÇÊ¿ä : 
@@ -12,7 +14,7 @@ public interface EmployeeInput {
 	
 	public void setDepartment(String department);
 	
-	public void setGrade(String grade);
+	public void setGrade(String grade) throws GradeException;
 	
 	public void getUserInput(Scanner input);
 	

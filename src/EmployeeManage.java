@@ -8,6 +8,7 @@ import employee.SmallBusinessEmployee;
 import employee.StartupEmployee;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class EmployeeManage {
 	ArrayList<EmployeeInput> employees = new ArrayList<EmployeeInput>(); // employee class의 list // 배열 이름 재정의, input의 결과를 출력하겠다는 의미
@@ -20,36 +21,45 @@ public class EmployeeManage {
 	public void recruitE() {
 		int kind = 0;
 		EmployeeInput employeeInput;
-		while (kind != 1 && kind != 2) {
-			System.out.println("1 for Small Business");
-			System.out.println("2 for Startup");
-			System.out.println("3 for Conglomerate");
-			System.out.print("Select number for Employee Kind between 1 or 2 or 3 : ");
-			kind = input.nextInt();
-			if (kind == 1) {  
-				employeeInput = new SmallBusinessEmployee(EmployeeKind.SmallBusiness);
-				employeeInput.getUserInput(input);
-				employees.add(employeeInput); 			// Employee.add파트가 들어가지 않았으므로 employeeInput에 따라 line 12 수정
-				break;
-			}
-			else if (kind == 2) {
-				employeeInput = new StartupEmployee(EmployeeKind.Startup);
-				employeeInput.getUserInput(input);
-				employees.add(employeeInput); 			// 목록에 employee 항목 추가
-				break; 
-			}
-			
-			else if (kind == 3) {
-				employeeInput = new ConglomerateEmployee(EmployeeKind.Conglomerate);
-				employeeInput.getUserInput(input);
-				employees.add(employeeInput); 			// 목록에 employee 항목 추가
-				break; 
-			}
-			
-			else {
-				System.out.println("Select number for Employee Kind between 1 or 2 or 3. ");
-			}
-		}
+		while (kind != 1 && kind != 2 && kind != 3 ) {
+			try {
+				System.out.println("1 for Small Business");
+				System.out.println("2 for Startup");
+				System.out.println("3 for Conglomerate");
+				System.out.print("Select number for Employee Kind between 1 or 2 or 3 : ");
+				kind = input.nextInt();
+				if (kind == 1) {  
+					employeeInput = new SmallBusinessEmployee(EmployeeKind.SmallBusiness);
+					employeeInput.getUserInput(input);
+					employees.add(employeeInput); 			// Employee.add파트가 들어가지 않았으므로 employeeInput에 따라 line 12 수정
+					break;
+				}
+				else if (kind == 2) {
+					employeeInput = new StartupEmployee(EmployeeKind.Startup);
+					employeeInput.getUserInput(input);
+					employees.add(employeeInput); 			// 목록에 employee 항목 추가
+					break; 
+				}
+				
+				else if (kind == 3) {
+					employeeInput = new ConglomerateEmployee(EmployeeKind.Conglomerate);
+					employeeInput.getUserInput(input);
+					employees.add(employeeInput); 			// 목록에 employee 항목 추가
+					break; 
+				}
+				
+				else {
+					System.out.println("Select number for Employee Kind between 1, 2 or 3. ");
+				}
+				}
+				catch(InputMismatchException e) {
+					System.out.println("\n Please put an Integer between 1 to 5 \n");
+					if (input.hasNext()) {
+						input.next();
+				 }
+				kind = -1;
+				}
+				}
 	}
 
 	public void laidOffE() {
