@@ -2,7 +2,8 @@ package employee;
 
 import java.util.Scanner;
 
-public abstract class Employee {	// 생성자가 아님, Employee 객체를 생성하지 않음
+public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Employee 객체를 생성하지 않음
+										// 모두 상속이 되므로 implements로 상속 받을 수 있음
 	protected EmployeeKind kind = EmployeeKind.SmallBusiness;
 	protected int id;
 	protected String name;
@@ -77,9 +78,59 @@ public abstract class Employee {	// 생성자가 아님, Employee 객체를 생성하지 않음
 		this.grade = grade;
 	}
 	
-	public abstract void printInfo();
+	public abstract void printInfo();	// printInfo : 출력마다 다를 때, 구현을 모두 별도로 하기 위해 Employee에서 제거
 	
-	// printInfo : 출력마다 다를 때, 구현을 모두 별도로 하기 위해 Employee에서 제거
+		
+		public void setEmployeeID(Scanner input) {
+			System.out.println("Employee ID: ");
+			int id = input.nextInt();
+			this.setID(id);
+		}
+		
+		public void setEmployeeName(Scanner input) {
+			System.out.println("Employee name: ");
+			String name = input.next();
+			this.setName(name);
+		}
+		
+		public void setEmployeeDepartment(Scanner input) {
+			System.out.println("Employee department: ");
+			String department = input.next();
+			this.setDepartment(department);
+		}
+		
+		public void setEmployeeGrade(Scanner input) {
+			System.out.println("Employee grade: ");
+			String grade = input.next();
+			this.setGrade(grade);
+		}
+		
+		public String getKindString() { 	// 고용인에 따라 정보가 달라짐
+			String ekind = "none";
+			switch(this.kind) {
+			case SmallBusiness:
+				ekind = "Small Business's Employee";
+				break;
+			case Startup:
+				ekind = "StartUp's Employee";
+				break;
+			case PublicEnterprise:
+				ekind = "Public Enterprise's Employee";
+				break;
+			case Conglomerate:
+				ekind = "CongLomerate's Employee";
+				break;
+			default:
+			
+			}
+			return ekind;
+		}
 
+		public void getUserInput(Scanner input) {
+			// TODO Auto-generated method stub
+			
+		}
 
-}
+	}
+	
+

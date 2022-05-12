@@ -18,6 +18,12 @@ public interface EmployeeInput {
 	
 	public void printInfo();
 
+	public void setEmployeeID(Scanner input);
 	
+	public void setEmployeeName(Scanner input);
+	
+	public void setEmployeeDepartment(Scanner input);
+	
+	public void setEmployeeGrade(Scanner input);
 	
 }	

@@ -7,31 +7,39 @@ public class CompanyList {
 		EmployeeManage employeeManage = new EmployeeManage(input); 
 		int num = 0;
 		while (num != 5) {
-			System.out.println("Welcome. This is Company List management Program.");
-			System.out.println("1. Recruit Employee");
-			System.out.println("2. Get laid off Employee");
-			System.out.println("3. Employee Reshuffle");
-			System.out.println("4. View Employees");
-			System.out.println("5. Exit");
-			System.out.println("SELECT one number between 1-5: ");
-			
+			showMenu();
 			num = input.nextInt();
-			if (num==1) {
+			switch(num) {
+			case 1:
 				employeeManage.recruitE();  //EmployeeManage 클래스에서 employeemanage 변수로 참조해옴
-			}
+				break;
 			
-			else if (num==2) {
+			case 2:
 				employeeManage.laidOffE();
-			}
+				break;
 			
-			else if (num==3) {
+			case 3:
 				employeeManage.reshuffleE();
-			}
+				break;
 			
-			else if (num==4) {
+			case 4:
 				employeeManage.viewE(); 
+				break;
+			
+			default:
+				continue;
 			}
 		}
+	}
+	
+	public static void showMenu() {
+		System.out.println("Welcome. This is Company List management Program.");
+		System.out.println("1. Recruit Employee");
+		System.out.println("2. Get laid off Employee");
+		System.out.println("3. Employee Reshuffle");
+		System.out.println("4. View Employees");
+		System.out.println("5. Exit");
+		System.out.println("SELECT one number between 1-5: ");
 	}
 }
 
