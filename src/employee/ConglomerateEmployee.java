@@ -18,7 +18,6 @@ public class ConglomerateEmployee extends FortyEmployee {	// Employee를 상속 받�
 			setEmployeeName(input);
 			setEmployeeDepartment(input);
 			setConEmployeeGradewithYN(input);
-			setEmployeeGrade(input);
 		}
 		
 		public void setConEmployeeGradewithYN(Scanner input) {

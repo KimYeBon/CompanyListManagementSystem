@@ -2,7 +2,7 @@ package employee;
 
 import java.util.Scanner;
 
-public class SmallBusinessEmployee extends Employee {
+public class SmallBusinessEmployee extends FortyEmployee {
 
 	public SmallBusinessEmployee(EmployeeKind kind) {
 		super(kind);	// »ý¼ºÀÚ
