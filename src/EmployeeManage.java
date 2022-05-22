@@ -1,18 +1,22 @@
 import java.util.Scanner;
 
 import employee.ConglomerateEmployee;
-import employee.Employee;
 import employee.EmployeeInput;
 import employee.EmployeeKind;
 import employee.SmallBusinessEmployee;
 import employee.StartupEmployee;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-public class EmployeeManage {
+public class EmployeeManage implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8439552870283196159L;
 	ArrayList<EmployeeInput> employees = new ArrayList<EmployeeInput>(); // employee class의 list // 배열 이름 재정의, input의 결과를 출력하겠다는 의미
-	Scanner input;
+	transient Scanner input;
 	EmployeeManage(Scanner input) {
 		this.input = input;
 	}

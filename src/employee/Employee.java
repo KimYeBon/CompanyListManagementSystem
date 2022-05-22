@@ -1,11 +1,15 @@
 package employee;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import Exception.GradeException;
 
-public abstract class Employee implements EmployeeInput {	// 생성자가 아님, Employee 객체를 생성하지 않음
-										// 모두 상속이 되므로 implements로 상속 받을 수 있음
+public abstract class Employee implements EmployeeInput, Serializable {	// 생성자가 아님, Employee 객체를 생성하지 않음
+										/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7453475774881160234L;
 	protected EmployeeKind kind = EmployeeKind.SmallBusiness;
 	protected int id;
 	protected String name;
