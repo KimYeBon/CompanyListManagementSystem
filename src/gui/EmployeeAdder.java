@@ -24,22 +24,23 @@ public class EmployeeAdder extends JFrame {
 		panel.add(labelName);
 		panel.add(fieldName);
 		
-		JLabel labelDepartment = new JLabel("ID: ", JLabel.TRAILING);	
+		JLabel labelDepartment = new JLabel("Department: ", JLabel.TRAILING);	
 		JTextField fieldDepartment = new JTextField(10);
 		labelID.setLabelFor(fieldDepartment);
 		panel.add(labelDepartment);
 		panel.add(fieldDepartment);
 		
-		panel.add(new JButton("Save"));
-		panel.add(new JButton("Cancel"));
 		
-		JLabel labelGrade = new JLabel("ID: ", JLabel.TRAILING);	
+		JLabel labelGrade = new JLabel("Grade: ", JLabel.TRAILING);	
 		JTextField fieldGrade = new JTextField(10);
 		labelID.setLabelFor(fieldGrade);
 		panel.add(labelGrade);
 		panel.add(fieldGrade);
 		
-		SpringUtilities.makeCompactGrid(panel, 4, 2, 6, 6, 6, 6);
+		panel.add(new JButton("Save"));
+		panel.add(new JButton("Cancel"));
+		
+		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
 		this.setSize(300, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
