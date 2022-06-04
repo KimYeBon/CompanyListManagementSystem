@@ -1,0 +1,26 @@
+package Listener;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+import gui.EmployeeViewer;
+import gui.WindowFrame;
+
+public class ButtonAddListener implements ActionListener {
+
+	WindowFrame frame;
+	
+	public ButtonAddListener(WindowFrame frame) {
+		this.frame = frame;		// 생성자에서 매개변수 frame을 받아줌으로써 해당 생성자가 frame을 이용할 수 있게 됨
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton b = (JButton) e.getSource();
+		EmployeeViewer viewer = frame.getEmployeeviewer(); 	
+		frame.setupPanel(viewer);
+	}
+
+}

@@ -7,8 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class EmployeeAdder extends JFrame {
-	public EmployeeAdder() {
+public class EmployeeAdder extends JPanel {
+	
+	WindowFrame frame;
+	
+	public EmployeeAdder(WindowFrame frame) {
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());		// JFrame 상속 받은 형태
 		
@@ -42,9 +47,7 @@ public class EmployeeAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
 	}
 }

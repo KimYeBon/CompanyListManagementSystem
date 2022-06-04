@@ -7,11 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame {
+import Listener.ButtonAddListener;
+import Listener.ButtonViewListener;
+
+public class MenuSelection extends JPanel {
 	
-	public MenuSelection() {	//	생성자를 통한 메뉴 구성
-		this.setSize(300, 300);					// window를 띄우는 frame
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// 종료 창 선택 시 클래스 종료
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) {	//	생성자를 통한 메뉴 구성
+		this.frame = frame;
+		
+		this.setLayout(new BorderLayout());		// panel의 기본 레이아웃
 		
 		JPanel panel = new JPanel();							//	Label의 위치가 겹치지 않게 하기 위한 panel 생성
 		JPanel panel2 = new JPanel();
@@ -23,6 +29,9 @@ public class MenuSelection extends JFrame {
 		JButton button4 = new JButton("View Employees");
 		JButton button5 = new JButton("Exit Program");
 		
+		button1.addActionListener(new ButtonAddListener(frame));
+		button2.addActionListener(new ButtonViewListener(frame));	// get laid off
+		
 		panel.add(label);
 		panel2.add(button1);
 		panel2.add(button2);
@@ -32,7 +41,6 @@ public class MenuSelection extends JFrame {
 //		this.setContentPane(panel); 			// 전체 panel을 panel로 지정(사용자가 지정한 패널)
 		this.add(panel, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
-		this.setVisible(true);
 		
 	}
 
