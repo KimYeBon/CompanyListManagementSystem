@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Listener.ButtonAddListener;
 import Listener.ButtonViewListener;
+import Listener.ButtonAddListener;
 
 public class MenuSelection extends JPanel {
 	
@@ -30,7 +30,7 @@ public class MenuSelection extends JPanel {
 		JButton button5 = new JButton("Exit Program");
 		
 		button1.addActionListener(new ButtonAddListener(frame));
-		button2.addActionListener(new ButtonViewListener(frame));	// get laid off
+		button4.addActionListener(new ButtonViewListener(frame));	
 		
 		panel.add(label);
 		panel2.add(button1);

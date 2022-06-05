@@ -10,9 +10,15 @@ public interface EmployeeInput {
 	
 	public void setID(int id);
 	
+	public String getName();
+	
 	public void setName(String name);
 	
+	public String getDepartment();
+	
 	public void setDepartment(String department);
+	
+	public String getGrade();
 	
 	public void setGrade(String grade) throws GradeException;
 	

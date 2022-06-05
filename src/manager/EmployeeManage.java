@@ -1,6 +1,8 @@
+package manager;
 import java.util.Scanner;
 
 import employee.ConglomerateEmployee;
+import employee.Employee;
 import employee.EmployeeInput;
 import employee.EmployeeKind;
 import employee.SmallBusinessEmployee;
@@ -140,6 +142,14 @@ public class EmployeeManage implements Serializable {
 				}
 		}
 		return index;
+	}
+	
+	public int size() {
+		return employees.size();
+	}
+	
+	public EmployeeInput get(int index) {
+		return (Employee) employees.get(index);	// employees 열에 인덱스를 넣어줌으로써 Employee return
 	}
 	
 	public void showEditMenu() {			// 함수를 통한 간소화

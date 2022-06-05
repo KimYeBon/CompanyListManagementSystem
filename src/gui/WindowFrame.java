@@ -2,18 +2,27 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import manager.EmployeeManage;
 
 public class WindowFrame extends JFrame {
-
-	// 생성자 함수에서 생성할 예쩡
 	
-	public WindowFrame() {
+	EmployeeManage employeeManage;
+	
+	MenuSelection menuSelection;// 생성자 함수에서 생성할 예쩡
+	EmployeeAdder employeeAdder;
+	EmployeeViewer employeeViewer;
+	
+	
+	
+	public WindowFrame(EmployeeManage employeeManage) {	// 생성자에서 객체 정보를 매개변수로 받아 옴
 		this.setSize(500, 300);					// window를 띄우는 frame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// 종료 창 선택 시 클래스 종료
 		
-		this.menuselection = new MenuSelection(this);
-		this.employeeadder = new EmployeeAdder(this);
-		this.employeeviewer = new EmployeeViewer(this);
+		this.employeeManage = employeeManage;
+		menuselection = new MenuSelection(this);
+		employeeadder = new EmployeeAdder(this);
+		employeeviewer = new EmployeeViewer(this, this.employeeManage);
+		
 		
 		this.setupPanel(menuselection);
 		//this.add(employeeadder);

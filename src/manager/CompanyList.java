@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class CompanyList {
@@ -18,7 +20,9 @@ public class CompanyList {
 		if (employeeManage == null) {
 			employeeManage = new EmployeeManage(input); //  객체가 없는 상태를 방지하기 위해 입력 받음
 		}
-				//new EmployeeManage(input);
+		
+		WindowFrame frame = new WindowFrame(employeeManage);	//	CompanyList와 gui를 연결짓기 위해 프레임 틀 생성
+		
 		selectMenu(input, employeeManage);	// 메뉴 실행
 		putObject(employeeManage, "employeemanager.ser");	// 프로그램이 끝나면 저장
 	}

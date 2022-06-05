@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import gui.EmployeeAdder;
 import gui.EmployeeViewer;
 import gui.WindowFrame;
 
@@ -19,8 +20,8 @@ public class ButtonAddListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton b = (JButton) e.getSource();
-		EmployeeViewer viewer = frame.getEmployeeviewer(); 	
-		frame.setupPanel(viewer);
+		EmployeeAdder adder = frame.getEmployeeadder(); 	
+		frame.setupPanel(adder);
 	}
 
 }
