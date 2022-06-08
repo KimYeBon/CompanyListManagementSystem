@@ -12,7 +12,7 @@ public class WindowFrame extends JFrame {
 	EmployeeAdder employeeAdder;
 	EmployeeViewer employeeViewer;
 	
-	
+
 	
 	public WindowFrame(EmployeeManage employeeManage) {	// 생성자에서 객체 정보를 매개변수로 받아 옴
 		this.setSize(500, 300);					// window를 띄우는 frame
@@ -20,7 +20,7 @@ public class WindowFrame extends JFrame {
 		
 		this.employeeManage = employeeManage;
 		menuselection = new MenuSelection(this);
-		employeeadder = new EmployeeAdder(this);
+		employeeadder = new EmployeeAdder(this, this.employeeManage);
 		employeeviewer = new EmployeeViewer(this, this.employeeManage);
 		
 		

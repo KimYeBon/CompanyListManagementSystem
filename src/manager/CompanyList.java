@@ -22,7 +22,6 @@ public class CompanyList {
 		}
 		
 		WindowFrame frame = new WindowFrame(employeeManage);	//	CompanyList와 gui를 연결짓기 위해 프레임 틀 생성
-		
 		selectMenu(input, employeeManage);	// 메뉴 실행
 		putObject(employeeManage, "employeemanager.ser");	// 프로그램이 끝나면 저장
 	}

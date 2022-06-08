@@ -17,6 +17,38 @@ public class EmployeeViewer extends JPanel {
 
 	EmployeeManage employeeManage;	//	employeemanage 정보를 가져 옴
 	
+	public EmployeeManage getEmployeeManage() {
+		return employeeManage;
+	}
+
+	public void setEmployeeManage(EmployeeManage employeeManage) {
+		this.employeeManage = employeeManage;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("ID");
+		model.addColumn("Name");
+		model.addColumn("Department");
+		model.addColumn("Grade");
+		
+		for (int i=0; i<employeeManage.size(); i++) {
+			Vector row = new Vector();
+			EmployeeInput ei = employeeManage.get(i);
+			row.add(ei.getID());
+			row.add(ei.getName());
+			row.add(ei.getDepartment());
+			row.add(ei.getGrade());
+			model.addRow(row);		// row를 model에 추가시킴으로써 데이터가 포함 됨
+			
+		}
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp);
+		
+	}
+
 	public EmployeeViewer(WindowFrame frame, EmployeeManage employeeManage) {
 		this.frame = frame;
 		this.employeeManage = employeeManage;

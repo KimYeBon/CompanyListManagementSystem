@@ -7,12 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Listener.EmployeeAdderCancelListener;
+import Listener.EmployeeAdderListener;
+import manager.EmployeeManage;
+
 public class EmployeeAdder extends JPanel {
 	
 	WindowFrame frame;
 	
-	public EmployeeAdder(WindowFrame frame) {
+	EmployeeManage employeeManage;
+	
+	public EmployeeAdder(WindowFrame frame, EmployeeManage employeeManage) {
 		this.frame = frame;
+		this.employeeManage = employeeManage;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());		// JFrame 상속 받은 형태
@@ -39,11 +46,18 @@ public class EmployeeAdder extends JPanel {
 		JLabel labelGrade = new JLabel("Grade: ", JLabel.TRAILING);	
 		JTextField fieldGrade = new JTextField(10);
 		labelID.setLabelFor(fieldGrade);
+		
+		JButton saveButton = new JButton("Save");	
+		saveButton.addActionListener(new EmployeeAdderListener(fieldID, 
+				fieldName, fieldDepartment, fieldGrade, employeeManage)); // save버튼에 addActionListener를 붙여줌으로써 동작 실행
+		JButton cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(new EmployeeAdderCancelListener(frame));
+		
 		panel.add(labelGrade);
 		panel.add(fieldGrade);
-		
-		panel.add(new JButton("Save"));
-		panel.add(new JButton("Cancel"));
+		panel.add(saveButton);
+		panel.add(cancelButton);
+
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		

@@ -23,6 +23,15 @@ public class EmployeeManage implements Serializable {
 		this.input = input;
 	}
 	
+	public void recruitE(String id, String name, String department, String grade) {
+		EmployeeInput employeeInput = new SmallBusinessEmployee(EmployeeKind.SmallBusiness);
+		employeeInput.getUserInput(input);
+		employees.add(employeeInput); 	
+	}
+	
+	public void recruitE(EmployeeInput employeeInput) {
+		employees.add(employeeInput);
+	}
 	
 	public void recruitE() {
 		int kind = 0;
